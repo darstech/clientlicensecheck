@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="LicenseValidation.Api/LicenseValidation.Api.csproj" />
+  <Project Path="LicenseValidation.Tests/LicenseValidation.Tests.csproj" />
+</Solution>
