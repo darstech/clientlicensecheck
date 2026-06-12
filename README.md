@@ -1,0 +1,2 @@
+# clientlicensecheck
+Validate Client Activations
