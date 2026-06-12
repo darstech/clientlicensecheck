@@ -6,6 +6,8 @@ For build, run, Docker, rebuild, and operational commands, see `OPERATOR_MANUAL.
 
 For endpoint schemas, sample request/response objects, status codes, and compatibility rules, see `API_CONTRACT.md`.
 
+For GitHub Actions deployment to Azure App Service, see `AZURE_DEPLOYMENT.md`.
+
 The first implementation is intentionally simple:
 
 - ASP.NET Core Minimal API on .NET 8.
