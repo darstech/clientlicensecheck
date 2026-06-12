@@ -36,29 +36,39 @@ HTTPS Only: On
 Always On: On, if available in your App Service plan
 ```
 
-## Required GitHub Secret
+## Required GitHub Secrets
 
-The workflow uses an Azure App Service publish profile.
+The workflow uses GitHub OIDC with `azure/login`.
 
-Add this GitHub repository secret:
-
-```text
-AZURE_WEBAPP_PUBLISH_PROFILE_SERVICEGUARDAPI
-```
-
-Secret value:
+Add these GitHub repository secrets:
 
 ```text
-Azure App Service publish profile XML for serviceguardapi
+AZURE_CLIENT_ID
+AZURE_TENANT_ID
+AZURE_SUBSCRIPTION_ID
 ```
 
-In Azure Portal:
+The Azure app registration or managed identity behind `AZURE_CLIENT_ID` needs permission to deploy to the App Service. A practical starting role is:
 
 ```text
-App Service > serviceguardapi > Get publish profile
+Website Contributor
 ```
 
-Copy the full XML content into the GitHub secret.
+Scoped to:
+
+```text
+App Service > serviceguardapi
+```
+
+You must also configure a federated credential in Azure for this GitHub repository and branch/environment so GitHub Actions can request an OIDC token without storing an Azure password.
+
+Recommended federated credential subject for deployments from `main`:
+
+```text
+repo:darstech/clientlicensecheck:ref:refs/heads/main
+```
+
+If you use GitHub Environments, configure the subject to match your environment policy.
 
 ## Deployment Behavior
 
