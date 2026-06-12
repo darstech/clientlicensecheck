@@ -1,0 +1,24 @@
+services:
+  license-validation-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: clientlicensecheck/license-validation-api:local
+    container_name: license-validation-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      Signing__KeyId: licensing-key-001
+      Signing__PrivateKeyPem: ""
+    volumes:
+      - ./LicenseValidation.Api/licenses.json:/app/licenses.json:ro
+    ports:
+      - "5212:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://127.0.0.1:8080/health/live"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped

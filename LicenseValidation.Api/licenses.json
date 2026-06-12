@@ -1,0 +1,38 @@
+{
+  "Licensing": {
+    "Licenses": [
+      {
+        "ClientId": "pharmacloud-fakhirgroup-com",
+        "ApplicationId": "pharmacloud",
+        "Status": "active",
+        "ExpiresAtUtc": "2027-06-12T00:00:00Z",
+        "AllowedEnvironments": [
+          "production",
+          "test"
+        ],
+        "AllowedActivationIds": [
+          "pharmacloud-fakhirgroup-com-pharmacloud-production",
+          "pharmacloud-fakhirgroup-com-pharmacloud-test"
+        ],
+        "AllowedInstallationIds": [
+          "2f4b5f84-91d6-4b28-b0a8-59bdf57c927a",
+          "55a2f50b-d4cb-44e8-bf27-f010ac108d63"
+        ],
+        "Features": [
+          "core",
+          "reports"
+        ],
+        "Limits": {
+          "maxTenants": null,
+          "maxUsers": null
+        },
+        "Messages": {
+          "Active": "License active.",
+          "Expired": "Activation failed. License has expired.",
+          "Suspended": "Activation failed. Please contact support.",
+          "Invalid": "Activation failed. Please contact support."
+        }
+      }
+    ]
+  }
+}

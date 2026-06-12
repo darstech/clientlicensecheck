@@ -1,0 +1,31 @@
+@LicenseValidation.Api_HostAddress = http://localhost:5212
+
+GET {{LicenseValidation.Api_HostAddress}}/health/live
+Accept: application/json
+
+###
+
+GET {{LicenseValidation.Api_HostAddress}}/health/ready
+Accept: application/json
+
+###
+
+POST {{LicenseValidation.Api_HostAddress}}/api/v1/license/validate
+Content-Type: application/json
+
+{
+  "schemaVersion": "1.0",
+  "clientId": "pharmacloud-fakhirgroup-com",
+  "applicationId": "pharmacloud",
+  "environment": "production",
+  "activationId": "pharmacloud-fakhirgroup-com-pharmacloud-production",
+  "installationId": "2f4b5f84-91d6-4b28-b0a8-59bdf57c927a",
+  "appVersion": "1.0.0",
+  "requestId": "{{$guid}}",
+  "extra": {
+    "tenantCount": 25,
+    "region": "UAE"
+  }
+}
+
+###
